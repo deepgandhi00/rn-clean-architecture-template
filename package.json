@@ -1,0 +1,8 @@
+{
+  "name": "rn-clean-architecture-template",
+  "version": "0.0.1",
+  "description": "React Native clean architecture template",
+  "repository": "git@github.com/deepgandhi00/rn-clean-architecture-template",
+  "author": "Deep Gandhi <deep.gandhi00@gmail.com>",
+  "license": "MIT"
+}
