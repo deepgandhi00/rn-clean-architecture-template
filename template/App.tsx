@@ -1,6 +1,5 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * React Native Clean Architecture Template
  *
  * @format
  */
