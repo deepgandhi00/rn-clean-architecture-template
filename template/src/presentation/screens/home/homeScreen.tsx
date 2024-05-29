@@ -3,20 +3,12 @@ import {SafeAreaView, Text, View} from 'react-native';
 import {Post} from '../../../domain/entities/post/posts.entity';
 import {ResponseModel} from '../../../domain/entities/generics/genericResponseModel.entity';
 import {useInjection} from 'inversify-react';
-import {PostRepository} from '../../../infrastructure/respository/post/postRepository';
+import {PostRepository} from '../../../infrastructure/repository/post/postRepository';
 import TYPES from '../../../application/di/types';
+import { useGetPosts } from './hooks/useGetPosts';
 
 const HomeScreen = (): React.ReactElement => {
-  let postRepository = useInjection<PostRepository>(TYPES.POST_API_REPOSITORY);
-  useEffect(() => {
-    postRepository
-      .getPosts()
-      .then((response: ResponseModel<Post[]>) => {
-        console.log(response.data);
-      })
-      .catch((error: any) => {});
-    // console.log(postRepository);
-  }, []);
+  const {posts} = useGetPosts();
 
   return (
     <SafeAreaView>

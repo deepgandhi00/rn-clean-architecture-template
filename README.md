@@ -21,7 +21,6 @@ npx react-native init testTemplate --template https://github.com/deepgandhi00/rn
 - reduxjs/toolkit
 - inversify-react
 
-
 ## Folder Structure
 
 - application (contains application level configurations)
@@ -31,8 +30,15 @@ npx react-native init testTemplate --template https://github.com/deepgandhi00/rn
   - utils (contains common styles and utility functions)
 - domain (contain entities and enums for application)
 - infrastructure (contain infrastructure level configuration files)
-  - http (contains client and client's service initialization)
+  - http (contains client and service initialization)
   - repository (contains all repositories definitions and their respective multiple implementations)
-  - services (contains all services definitions and their respective multiple implementations)
 - presentation (contains screens and components)
-  - hooks (contains business logics for particular screen or component)
+  - hooks (contains business logics for particular screen or component similar to segmentation of view model)
+
+## Tests
+
+- application
+  - di (contains mock dependency injection)
+- repository
+  - http (contains http client and services mock)
+  - repository (contains test cases for sample repository)

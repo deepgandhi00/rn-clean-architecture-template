@@ -2,19 +2,18 @@
 import {PostRepository} from './postRepository';
 import {ResponseModel} from '../../../domain/entities/generics/genericResponseModel.entity';
 import {Post} from '../../../domain/entities/post/posts.entity';
-import type {PostService} from '../../services/post/postService';
-import TYPES from '../../../application/di/types';
 import {inject, injectable} from 'inversify';
+import { HttpService } from '../../http/httpService';
 
 @injectable()
 export class PostRepositoryImpl implements PostRepository {
-  postService: PostService;
+  httpService: HttpService;
 
-  constructor(@inject(TYPES.POST_API_SERVICE) postService: PostService) {
-    this.postService = postService;
+  constructor(@inject(HttpService) httpService: HttpService) {
+    this.httpService = httpService;
   }
 
   getPosts(): Promise<ResponseModel<Post[]>> {
-    return this.postService.getPosts();
+    return this.httpService.get<Post[]>('/posts');
   }
 }
